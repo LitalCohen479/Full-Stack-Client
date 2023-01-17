@@ -77,7 +77,7 @@ body {
   border-radius: 5px;
 }
 
-.formContainer #inputCreatePost, #inputCreatePost1 {
+.formContainer #inputCreatePost #inputCreatePost1 {
   height: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
