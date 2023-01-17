@@ -12,11 +12,11 @@ const Profile = () => {
     const {authState} =useContext(AuthContext);
 
 useEffect(()=>{
-    axios.get(`https://litalcohenfullstack.herokuapp.com/auth/basicinfo/${id}`).then((response) => {
+    axios.get(`/api/auth/basicinfo/${id}`).then((response) => {
       setUsername(response.data.username);
 console.log(response.data.username)
 
-axios.get(`https://litalcohenfullstack.herokuapp.com/posts/byUserId/${id}`).then((response) => {
+axios.get(`/api/posts/byUserId/${id}`).then((response) => {
     setListOfPosts(response.data);
   });
 })

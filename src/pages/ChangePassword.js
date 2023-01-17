@@ -8,7 +8,7 @@ function ChangePassword() {
   const changePassword = () => {
     axios
       .put(
-        "https://litalcohenfullstack.herokuapp.com/auth/changepassword",
+        "/api/auth/changepassword",
         {
           oldPassword: oldPassword,
           newPassword: newPassword,

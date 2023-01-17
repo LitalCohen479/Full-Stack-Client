@@ -13,15 +13,15 @@ const Post = () => {
 
 
     useEffect(()=>{
-        axios.get(`https://litalcohenfullstack.herokuapp.com/posts/byId/${id}`).then((response)=>{
+        axios.get(`/api/posts/byId/${id}`).then((response)=>{
          setPostObject(response.data)
     });
-    axios.get(`https://litalcohenfullstack.herokuapp.com/comments/${id}`).then((response)=>{
+    axios.get(`/api/comments/${id}`).then((response)=>{
       setComments(response.data)
  });
     },[])
 const addComment = ()=>{
-  axios.post('https://litalcohenfullstack.herokuapp.com/comments', {commentBody:newComment, PostId:id},
+  axios.post('/api/comments', {commentBody:newComment, PostId:id},
   {
     headers:{
       accessToken: localStorage.getItem("accessToken"),
@@ -41,7 +41,7 @@ const addComment = ()=>{
 }
 
 const deleteComment = (id)=>{
-  axios.delete(`https://litalcohenfullstack.herokuapp.com/comments/${id}`, {
+  axios.delete(`/api/comments/${id}`, {
     headers: {accessToken:localStorage.getItem('accessToken')},
   }).then(()=>{
 setComments(
@@ -53,7 +53,7 @@ setComments(
 };
 
 const deletePost=(id)=>{
-axios.delete(`https://litalcohenfullstack.herokuapp.com/posts/${id}`, {
+axios.delete(`/api/posts/${id}`, {
   headers: {accessToken:localStorage.getItem('accessToken')},
 }).then(()=>{
   navigate('/')
@@ -62,14 +62,14 @@ axios.delete(`https://litalcohenfullstack.herokuapp.com/posts/${id}`, {
 const editPost=(option)=>{
 if(option==='title'){
 let newTitle=prompt('Enter New Title')
-axios.put("https://litalcohenfullstack.herokuapp.com/posts/title",{newTitle:newTitle, id:id},
+axios.put("/api/posts/title",{newTitle:newTitle, id:id},
 {
   headers: {accessToken:localStorage.getItem('accessToken')},
 } )
 setPostObject({...postObject, title:newTitle})
 }else{
   let newPostText=prompt('Enter New Post Content')
-  axios.put("https://litalcohenfullstack.herokuapp.com/posts/postText",{newText:newPostText, id:id},
+  axios.put("/api/posts/postText",{newText:newPostText, id:id},
 {
   headers: {accessToken:localStorage.getItem('accessToken')},
 } )

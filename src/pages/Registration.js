@@ -18,7 +18,7 @@ const validationSchema=Yup.object().shape({
 const onSubmit=(data)=>{
     
     window.location.reload();
-    axios.post('https://litalcohenfullstack.herokuapp.com/auth', data).then(()=>{
+    axios.post('/api/auth', data).then(()=>{
         console.log(data)
         
 });
