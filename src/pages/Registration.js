@@ -32,7 +32,7 @@ const onSubmit=(data)=>{
                 <Field id='inputCreatePost' name='username' placeholder='username'/>
                 <ErrorMessage name='title' component='span'/>
                 <label>Password:</label>
-                <Field id='inputCreatePost' name='password' placeholder='password' type='password'/>
+                <Field id='#inputCreatePost1' name='password' placeholder='password' type='password'/>
                 <button type='submit'>Register</button>
 
             </Form>
