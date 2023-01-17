@@ -21,7 +21,7 @@ function App() {
   });
 
   useEffect(()=>{
-   axios.get('http://localhost:3001/auth/auth', {headers:{
+   axios.get('https://litalcohenfullstack.herokuapp.com/auth/auth', {headers:{
     accessToken:localStorage.getItem('accessToken'),
    },
 
