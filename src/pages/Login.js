@@ -12,7 +12,7 @@ let navigate = useNavigate();
 
   const login = ()=>{
     const data = {username:username, password:password}
-axios.post('/api/auth/login', data).then((response)=>{
+axios.post('https://litalcohenfullstack.herokuapp.com/auth/login', data).then((response)=>{
 if(response.data.error){
   alert(response.data.error);
 }else{

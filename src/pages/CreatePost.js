@@ -31,7 +31,7 @@ const validationSchema=Yup.object().shape({
 
     const onSubmit=(data)=>{
 
-        axios.post('/api/posts', data,{
+        axios.post('https://litalcohenfullstack.herokuapp.com/posts', data,{
             headers: {accessToken: localStorage.getItem("accessToken") },
         }).then((response)=>{
             navigate('/')

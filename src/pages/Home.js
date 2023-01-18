@@ -17,7 +17,7 @@ useEffect(()=>{
   }else{
 
  
-axios.get('/api/posts', {
+axios.get('https://litalcohenfullstack.herokuapp.com/posts', {
   headers: { accessToken: localStorage.getItem("accessToken") },
 }).then((response)=>{
 setListOfPosts(response.data.listOfPosts);
@@ -31,7 +31,7 @@ setLikedPosts(
 },[]);
 
 const likeAPost = (postId)=>{
-axios.post('/api/likes', 
+axios.post('https://litalcohenfullstack.herokuapp.com/likes', 
 {PostId:postId},
  {headers:{accessToken: localStorage.getItem('accessToken')}}
  )
