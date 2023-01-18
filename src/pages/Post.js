@@ -13,15 +13,15 @@ const Post = () => {
 
 
     useEffect(()=>{
-        axios.get(`https://litalcohenfullstack.herokuapp.com/posts/byId/${id}`).then((response)=>{
+        axios.get(`http://localhost:3001/posts/byId/${id}`).then((response)=>{
          setPostObject(response.data)
     });
-    axios.get(`https://litalcohenfullstack.herokuapp.com/comments/${id}`).then((response)=>{
+    axios.get(`http://localhost:3001/comments/${id}`).then((response)=>{
       setComments(response.data)
  });
     },[])
 const addComment = ()=>{
-  axios.post('https://litalcohenfullstack.herokuapp.com/comments', {commentBody:newComment, PostId:id},
+  axios.post('http://localhost:3001/comments', {commentBody:newComment, PostId:id},
   {
     headers:{
       accessToken: localStorage.getItem("accessToken"),
@@ -41,7 +41,7 @@ const addComment = ()=>{
 }
 
 const deleteComment = (id)=>{
-  axios.delete(`https://litalcohenfullstack.herokuapp.com/comments/${id}`, {
+  axios.delete(`http://localhost:3001/comments/${id}`, {
     headers: {accessToken:localStorage.getItem('accessToken')},
   }).then(()=>{
 setComments(
@@ -53,7 +53,7 @@ setComments(
 };
 
 const deletePost=(id)=>{
-axios.delete(`https://litalcohenfullstack.herokuapp.com/posts/${id}`, {
+axios.delete(`http://localhost:3001/posts/${id}`, {
   headers: {accessToken:localStorage.getItem('accessToken')},
 }).then(()=>{
   navigate('/')
@@ -62,14 +62,14 @@ axios.delete(`https://litalcohenfullstack.herokuapp.com/posts/${id}`, {
 const editPost=(option)=>{
 if(option==='title'){
 let newTitle=prompt('Enter New Title')
-axios.put("https://litalcohenfullstack.herokuapp.com/posts/title",{newTitle:newTitle, id:id},
+axios.put("http://localhost:3001/posts/title",{newTitle:newTitle, id:id},
 {
   headers: {accessToken:localStorage.getItem('accessToken')},
 } )
 setPostObject({...postObject, title:newTitle})
 }else{
   let newPostText=prompt('Enter New Post Content')
-  axios.put("https://litalcohenfullstack.herokuapp.com/posts/postText",{newText:newPostText, id:id},
+  axios.put("http://localhost:3001/posts/postText",{newText:newPostText, id:id},
 {
   headers: {accessToken:localStorage.getItem('accessToken')},
 } )
